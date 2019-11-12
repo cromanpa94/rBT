@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.rBT.Rproj$
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^rBT.Rproj$
+^rBT\.Rproj$
+
