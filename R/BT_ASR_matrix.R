@@ -1,3 +1,5 @@
+#' Matrix of marginal probabilities at nodes
+#' 
 #' This function takes a BayesTraits output. The matrix sould be either provided as a data frame()see BT_summarize function or read using this function from a given foldder
 #' @param ASR_matrix should have the following structure RecNodeX.P.1. and RecNodeX.P.0.
 #' @param nstates Number of discrete states in the analysis

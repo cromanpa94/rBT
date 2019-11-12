@@ -1,3 +1,5 @@
+#' Input files for a single BT run
+#' 
 #' This function creates all input files for a single analysis under the BayesTraits
 #' MultiState model.
 #'

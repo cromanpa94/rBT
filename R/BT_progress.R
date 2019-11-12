@@ -1,3 +1,5 @@
+#' Progress bar for multiple BT analyses
+#'
 #' A progress bar for BayesTraits analyses
 #' 
 #' @param  ... Not requiered

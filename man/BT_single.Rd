@@ -2,8 +2,7 @@
 % Please edit documentation in R/BT_single.R
 \name{BT_single}
 \alias{BT_single}
-\title{This function creates all input files for a single analysis under the BayesTraits
-MultiState model.}
+\title{Input files for a single BT run}
 \usage{
 BT_single(tree, dataset, tip.label, trait, ML = ML, model = "RevJump",
   vrates = T, Iterations = 10000, Burnin = 100, dist = "exp",

@@ -2,7 +2,7 @@
 % Please edit documentation in R/BT_summarize.R
 \name{BT_summarize}
 \alias{BT_summarize}
-\title{This function summarizes analyses conducted in BayesTraits}
+\title{Summary of BT analyses}
 \usage{
 BT_summarize(folder = ".", bn = 0)
 }
@@ -12,5 +12,5 @@ BT_summarize(folder = ".", bn = 0)
 \item{bn}{burnin (0-1)}
 }
 \description{
-Note that burnin might have been applied in a previous stage of the analysis
+Burnin may have been applied in a previous stage of the analysis
 }

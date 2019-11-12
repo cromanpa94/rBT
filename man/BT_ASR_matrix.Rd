@@ -2,7 +2,7 @@
 % Please edit documentation in R/BT_ASR_matrix.R
 \name{BT_ASR_matrix}
 \alias{BT_ASR_matrix}
-\title{This function takes a BayesTraits output. The matrix sould be either provided as a data frame()see BT_summarize function or read using this function from a given foldder}
+\title{Matrix of marginal probabilities at nodes}
 \usage{
 BT_ASR_matrix(ASR_matrix = NULL, nstates = 2, bn = 0.1, read = T,
   folder = ".")

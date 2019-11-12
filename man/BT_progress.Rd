@@ -2,7 +2,7 @@
 % Please edit documentation in R/BT_progress.R
 \name{BT_progress}
 \alias{BT_progress}
-\title{A progress bar for BayesTraits analyses}
+\title{Progress bar for multiple BT analyses}
 \usage{
 BT_progress(...)
 }

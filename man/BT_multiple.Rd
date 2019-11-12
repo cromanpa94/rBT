@@ -2,8 +2,7 @@
 % Please edit documentation in R/BT_multiple.R
 \name{BT_multiple}
 \alias{BT_multiple}
-\title{This function creates imput files for a large combination of the parameters
- under the BayesTraits MultiState model.}
+\title{Input files for multiple BT runs}
 \usage{
 BT_multiple(tree, dataset, tip.label, trait, run = F, name_general,
   ML = F, it = 1.1e+07, bur = 1e+06)
@@ -28,6 +27,10 @@ BT_multiple(tree, dataset, tip.label, trait, run = F, name_general,
 \item{bur}{Total number of generations assumed as burnin under a bayesian optimization (only when \code{ML=F})}
 }
 \description{
+This function creates imput files for a large combination of the parameters
+ under the BayesTraits MultiState model.
+}
+\details{
 Specifically, this function is designed to run models differing in the following
   parameters: (1) "PriorAll" vs. "RevJump", (2) Variable rates vs. non-Variable rates,
  and (3) uniform vs. exponential distributions.

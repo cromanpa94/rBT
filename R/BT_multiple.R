@@ -1,3 +1,5 @@
+#' Input files for multiple BT runs
+#' 
 #' This function creates imput files for a large combination of the parameters
 #'  under the BayesTraits MultiState model.
 #'

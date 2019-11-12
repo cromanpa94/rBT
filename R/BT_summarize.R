@@ -1,6 +1,7 @@
-#' This function summarizes analyses conducted in BayesTraits
+#' Summary of BT analyses
 #' 
-#' Note that burnin might have been applied in a previous stage of the analysis
+#' Burnin may have been applied in a previous stage of the analysis
+#' 
 #' @param folder where the output files of a BayesTraits analysis are found
 #' @param bn burnin (0-1)
 
