@@ -8,9 +8,7 @@
 #'  and (3) uniform vs. exponential distributions.
 #'
 #' @param tree A fully-bifurcating Phy object
-#' @param dataset A data.frame object with two columns (tip name + state[numeric])
-#' @param tip.label A \code{character} indicating the name of the column with the trait
-#' @param trait A \code{character} indicating the name of the column with the tip names in the dataset
+#' @param dataset A data.frame object with two columns (tip name + state)
 #' @param run \code{logic} whether analyses should start after input files are created
 #' @param name_general A \code{character} indicating the name of the analuysis (use unique per analysis)
 #' @param ML \code{logic} whether parameters should be optimized under a Maximum Likelihood approach. MCMC analyses are available under \code{ML=F}
@@ -22,8 +20,6 @@
 BT_multiple <-
   function(tree,
            dataset,
-           tip.label ,
-           trait ,
            run = F,
            name_general,
            ML = F,
@@ -47,8 +43,6 @@ BT_multiple <-
             } else{
               c(0, 10)
             },
-            tip.label = tip.label,
-            trait = trait,
             ML = F,
             run = run,
             name = paste0(

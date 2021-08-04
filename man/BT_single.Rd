@@ -4,18 +4,26 @@
 \alias{BT_single}
 \title{Input files for a single BT run}
 \usage{
-BT_single(tree, dataset, tip.label, trait, ML = ML, model = "RevJump",
-  vrates = T, Iterations = 10000, Burnin = 100, dist = "exp",
-  val_prior = 10, name = "Default", run = F)
+BT_single(
+  tree,
+  dataset,
+  ML = F,
+  model = "PriorAll",
+  vrates = T,
+  Iterations = 10000,
+  Burnin = 100,
+  dist = "exp",
+  val_prior = 10,
+  name = "Default",
+  run = T,
+  LinuxMac = T,
+  path = NULL
+)
 }
 \arguments{
-\item{tree}{A fully-bifurcating Phy object}
+\item{tree}{A fully-bifurcating phylo object}
 
-\item{dataset}{A data.frame object with two columns (tip name + state[numeric])}
-
-\item{tip.label}{A \code{character} indicating the name of the column with the trait}
-
-\item{trait}{A \code{character} indicating the name of the column with the tip names in the dataset}
+\item{dataset}{A data.frame object with two columns (tip name + state)}
 
 \item{ML}{\code{logic} whether parameters should be optimized under a Maximum Likelihood approach. MCMC analyses are available under \code{ML=F}}
 
@@ -34,6 +42,10 @@ BT_single(tree, dataset, tip.label, trait, ML = ML, model = "RevJump",
 \item{name}{The name of the run. This name is used to create a subfolder within the working directory}
 
 \item{run}{\code{logic} whether analyses should start after input files are created}
+
+\item{LinuxMac}{\code{logic} Are you in MacOs or Linux?}
+
+\item{path}{Path to BayesTraits}
 }
 \description{
 This function creates all input files for a single analysis under the BayesTraits

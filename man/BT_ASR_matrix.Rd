@@ -4,8 +4,7 @@
 \alias{BT_ASR_matrix}
 \title{Matrix of marginal probabilities at nodes}
 \usage{
-BT_ASR_matrix(ASR_matrix = NULL, nstates = 2, bn = 0.1, read = T,
-  folder = ".")
+BT_ASR_matrix(ASR_matrix = NULL, nstates = 2, bn = 0.1, read = T, folder = ".")
 }
 \arguments{
 \item{ASR_matrix}{should have the following structure RecNodeX.P.1. and RecNodeX.P.0.}

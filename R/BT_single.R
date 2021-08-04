@@ -4,10 +4,8 @@
 #' MultiState model.
 #'
 #'
-#' @param tree A fully-bifurcating Phy object
-#' @param dataset A data.frame object with two columns (tip name + state[numeric])
-#' @param tip.label A \code{character} indicating the name of the column with the trait
-#' @param trait A \code{character} indicating the name of the column with the tip names in the dataset
+#' @param tree A fully-bifurcating phylo object
+#' @param dataset A data.frame object with two columns (tip name + state)
 #' @param ML \code{logic} whether parameters should be optimized under a Maximum Likelihood approach. MCMC analyses are available under \code{ML=F}
 #' @param model A \code{character} vector used to set the analysis to a "PriorAll" or "RevJump" model
 #' @param vrates Whether a VarRates model should be abalyzed, \code{logic}
@@ -17,24 +15,46 @@
 #' @param val_prior A vector of class \code{numeric} with the parameters for the "exp" (1 parameter) or "uniform (2 parameters) distribution
 #' @param name The name of the run. This name is used to create a subfolder within the working directory
 #' @param run \code{logic} whether analyses should start after input files are created
-#'
+#' @param LinuxMac \code{logic} Are you in MacOs or Linux?
+#' @param path Path to BayesTraits 
+#' 
+#' @example 
+#' dontrun{
+#' 
+#' data(dataset)
+#' data(tree)
+#' BT_single(tree=tree,
+#'           dataset=dataset,
+#'           ML = F,
+#'           model = "PriorAll",
+#'           vrates = T,
+#'           Iterations = 10000,
+#'           Burnin = 100,
+#'           dist = "exp",
+#'           val_prior = 10,
+#'           name = "Default",
+#'           run = T,
+#'           LinuxMac=T,
+#'           path=NULL)
+#' }
+#' 
 #' @export
 
 
 
 BT_single <- function(tree,
                             dataset,
-                            tip.label,
-                            trait,
-                            ML = ML,
-                            model = "RevJump",
+                            ML = F,
+                            model = "PriorAll",
                             vrates = T,
                             Iterations = 10000,
                             Burnin = 100,
                             dist = "exp",
                             val_prior = 10,
                             name = "Default",
-                            run = F) {
+                            run = T,
+                            LinuxMac=T,
+                            path=NULL) {
   mainDir <- getwd()
   subDir <- name
   ifelse(!dir.exists(file.path(mainDir, subDir)), dir.create(file.path(mainDir, subDir)), FALSE)
@@ -42,7 +62,7 @@ BT_single <- function(tree,
 
 
   Input_BayesTraits <-
-    cbind.data.frame(Tip = dataset[, tip.label], Habitat = dataset[, trait])
+    cbind.data.frame(Tip = dataset[, 1], Habitat = dataset[, 2])
   row.names(Input_BayesTraits) <- Input_BayesTraits$Tip
   Input_BayesTraits$Tip <- NULL
 
@@ -56,6 +76,7 @@ BT_single <- function(tree,
 
   input = c(1, ifelse(ML == T, 1, 2))
   input2 = if (model != "RevJump") {
+    ##Only for Bayesian
     c(paste("PriorAll", dist, format(val_prior2, scientific = FALSE)))
   } else{
     c(paste("RevJump", dist, format(val_prior2, scientific = FALSE)))
@@ -94,7 +115,14 @@ BT_single <- function(tree,
   ##Run BT
   if (run == F) {
   } else{
-    system(paste("bayestraits Tree_input.tree Trait_input.txt < Input.txt"))
+    if( LinuxMac ==T ){
+    system(paste0("chmod +x ",system.file("extdata", "BayesTraitsV3", package = "rBT")))
+    path<-paste0("",system.file("extdata", "BayesTraitsV3", package = "rBT"))
+
+      }else{
+      path
+    }
+    system(paste(path, "Tree_input.tree Trait_input.txt < Input.txt"))
     setwd(file.path(mainDir))
   }
   setwd(file.path(mainDir))

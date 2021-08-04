@@ -4,17 +4,20 @@
 \alias{BT_multiple}
 \title{Input files for multiple BT runs}
 \usage{
-BT_multiple(tree, dataset, tip.label, trait, run = F, name_general,
-  ML = F, it = 1.1e+07, bur = 1e+06)
+BT_multiple(
+  tree,
+  dataset,
+  run = F,
+  name_general,
+  ML = F,
+  it = 1.1e+07,
+  bur = 1e+06
+)
 }
 \arguments{
 \item{tree}{A fully-bifurcating Phy object}
 
-\item{dataset}{A data.frame object with two columns (tip name + state[numeric])}
-
-\item{tip.label}{A \code{character} indicating the name of the column with the trait}
-
-\item{trait}{A \code{character} indicating the name of the column with the tip names in the dataset}
+\item{dataset}{A data.frame object with two columns (tip name + state)}
 
 \item{run}{\code{logic} whether analyses should start after input files are created}
 
